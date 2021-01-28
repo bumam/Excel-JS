@@ -9,6 +9,9 @@
   "rules": {
     "semi": "off",
     "linebreak-style": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "indent": ["error", 2],
+    "no-trailing-spaces": "off",
+    "arrow-parens": "off"
   }
 }

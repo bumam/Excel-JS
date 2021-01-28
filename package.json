@@ -4,8 +4,9 @@
   "description": "Pure JS Aplication",
   "main": "webpack.config.js",
   "scripts": {
+    "fix": "eslint --fix .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development webpack serve",
+    "start": "cross-env NODE_ENV=development webpack serve ",
     "build": "cross-env NODE_ENV=production webpack --mode production"
   },
   "repository": {
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/bumam/Excel-JS#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
