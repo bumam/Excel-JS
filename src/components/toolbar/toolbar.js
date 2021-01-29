@@ -1,6 +1,6 @@
-import {ExelComponent} from '../../core/ExelComponent';
+import {ExcelComponent} from '@core/ExcelComponent';
 
-export class Toolbar extends ExelComponent {
+export class Toolbar extends ExcelComponent {
   static className = 'excel__toolbar'
 
   toHTML() {
