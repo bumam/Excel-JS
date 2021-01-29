@@ -23,6 +23,6 @@ export class Formula extends ExcelComponent {
   }
 
   onClick() {
-
+    console.log('mk')
   }
 }

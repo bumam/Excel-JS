@@ -25,5 +25,9 @@ export class Excel {
 
     this.components.forEach(comp=> comp.init())
   }
+
+  destroy() {
+    this.components.forEach(comp=> comp.remove());
+  }
 }
 
