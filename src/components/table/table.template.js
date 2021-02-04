@@ -4,9 +4,12 @@ const CODES = {
 }
 
 function createRow(content, info) {
+  const resize = info ? '<div class="row-resize" data-resize="row"></div>' : ''
   return `
    <div class="row">
-	   <div class="row-info">${info}</div>
+	   <div class="row-info">${info ? info : ''}
+	     ${resize}
+	   </div>
 		 <div class="row-data">${content}</div>
 	 </div>
  `
@@ -14,7 +17,9 @@ function createRow(content, info) {
 
 function toColumn(col) {
   return `
-   <div class="column">${col}</div>
+   <div class="column" data-type="resizable">${col} 
+     <div class="col-resize" data-resize="col"></div>
+   </div>
  `
 }
 
@@ -39,7 +44,7 @@ export function createTable(rowsCount = 15) {
 
   const cells = new Array(colsCount).fill(createCell()).join('')
 
-  rows.push(createRow(cols, '' ))
+  rows.push(createRow(cols, null ))
 
   for (let i = 0; i < rowsCount; i++) {
     rows.push(createRow(cells, i+1))
