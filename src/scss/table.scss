@@ -71,11 +71,19 @@
 .col-resize {
   width: 4px;
   top: 0;
+
+  &:hover {
+    cursor: col-resize;
+  }
 }
 
 .row-resize {
   left: 0;
   height: 4px;
+  &:hover {
+    cursor: row-resize;
+  }
+
 }
 
 .col-resize, .row-resize {
@@ -84,9 +92,13 @@
   right: 0;
   background: $primary_color;
   opacity: 0;
+  z-index: 1000;
 
   &:hover {
     opacity: 1;
-    cursor: row-resize;
+  }
+  &:active {
+    background: $primary-color;
+    opacity: 1;
   }
 }
