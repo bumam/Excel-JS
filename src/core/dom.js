@@ -69,7 +69,6 @@ class Dom {
     this.$el.classList.remove(className)
   }
 
-
   css(styles = {}) {
     Object.keys(styles).forEach(key => {
       this.$el.style[key] = styles[key]
@@ -78,6 +77,17 @@ class Dom {
 
   cssClear(props) {
     props.forEach((prop) => this.$el.style.removeProperty(prop))
+  }
+
+  id(parse) {
+    if (parse) {
+      const parsed = this.id().split(':')
+      return {
+        row: +parsed[0],
+        col: +parsed[1],
+      }
+    }
+    return this.data.id
   }
 }
 
