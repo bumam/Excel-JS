@@ -22,8 +22,3 @@ export class Emitter {
     }
   }
 }
-
-const emitter = new Emitter()
-
-emitter.subscribe('123', data => console.log('dd', data))
-emitter.emit('123', 12)
