@@ -47,20 +47,22 @@ function toChar(_, index) {
 
 function toCell(state, row) {
   return function(_, col) {
-    const width = getWidth(state, col)
+    const width = getWidth(state.colState, col)
+    const id =`${row}:${col}`
+    const data = state.dataState[id]
     return `
-    <div 
+    <div
       class="cell" 
       contenteditable 
       data-col="${col}"
       data-type="cell"
-      data-id="${row}:${col}"
+      data-id="${id}"
       style="width: ${width}"
-      >
-   </div>
+      >${data || ''}</div>
    `
   }
 }
+
 
 function withWidthFrom(state) {
   return function(col, index) {
@@ -85,7 +87,7 @@ export function createTable(rowsCount = 10, state = {}) {
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount).fill('')
       .map(toChar)
-      .map(toCell(state.colState, row))
+      .map(toCell(state, row))
       .join('')
     rows.push(createRow(cells, row+1, state.rowState))
   }
