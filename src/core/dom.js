@@ -87,6 +87,13 @@ class Dom {
     })
   }
 
+  getStyles(styles = []) {
+    return styles.reduce((res, s) => {
+      res[s] = this.$el.style[s]
+      return s
+    }, {})
+  }
+
   cssClear(props) {
     props.forEach((prop) => this.$el.style.removeProperty(prop))
   }
