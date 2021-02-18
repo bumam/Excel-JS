@@ -7,11 +7,11 @@ import {Formula} from './components/formula/Formula';
 import {Store} from '@core/Store';
 import {rootReducer} from '@/redux/rootReducer';
 import {storage} from '@core/utils';
+import {initialState} from '@/redux/initialState';
 
-const store = new Store(rootReducer, storage('excel-state'))
+const store = new Store(rootReducer, initialState)
 
 store.subscribe(state => {
-  console.log(state)
   storage('excel-state', state)
 })
 

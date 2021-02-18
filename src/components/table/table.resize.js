@@ -9,6 +9,7 @@ export function resizeHandler($root, event) {
     const sideProp = type === 'col' ? 'bottom' : 'right'
     let value
 
+
     $resizer.css({
       opacity: 1,
       [sideProp]: '-5000px',
@@ -40,7 +41,9 @@ export function resizeHandler($root, event) {
 
       resolve({
         value,
-        id: type === 'col' ? $parent.data.col : null,
+        type,
+        // id: type === 'col' ? $parent.data.col : $parent.data.row,
+        id: $parent.data[type],
       })
 
       $resizer.css({
