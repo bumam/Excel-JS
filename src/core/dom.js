@@ -90,12 +90,8 @@ class Dom {
   getStyles(styles = []) {
     return styles.reduce((res, s) => {
       res[s] = this.$el.style[s]
-      return s
+      return res
     }, {})
-  }
-
-  cssClear(props) {
-    props.forEach((prop) => this.$el.style.removeProperty(prop))
   }
 
   id(parse) {
