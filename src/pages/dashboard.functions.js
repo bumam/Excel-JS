@@ -6,7 +6,7 @@ function toHTML(key) {
   return `
         <li class="db__record">
           <a href="#excel/${id}">${model.title}</a>
-          <strong>${new Date(model.openedDate).toLocaleString()}
+          <strong>${new Date(model.openedDate).toLocaleString()}</strong>
          `
 }
 

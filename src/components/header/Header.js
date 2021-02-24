@@ -38,8 +38,10 @@ export class Header extends ExcelComponent {
 
   onClick(event) {
     const $target = $(event.target)
+
     if ($target.data.button === 'remove') {
       const decision = confirm('Вы действительно хотите удалить эту таблицу?')
+
       if (decision) {
         localStorage.removeItem('excel:' + ActiveRoute.param)
         ActiveRoute.navigate('')
