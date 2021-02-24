@@ -1,7 +1,7 @@
 import {rootReducer} from '@/redux/rootReducer';
 import {normalizeInitialState} from '@/redux/initialState';
 import {debounce, storage} from '@core/utils';
-import {Store} from '@core/Store';
+import {Store} from '@core/store/Store';
 import {Page} from '@core/Page';
 import {Excel} from '@/components/excel/Excel';
 import {Header} from '@/components/header/Header';
