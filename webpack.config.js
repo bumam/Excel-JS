@@ -1,7 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -36,10 +37,11 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@': path.resolve((__dirname, 'src')),
+      '@': path.resolve(__dirname, 'src'),
       '@core': path.resolve(__dirname, 'src/core'),
     },
   },
+  target: process.env.NODE_ENV === 'development' ? 'web' : 'browserslist',
   plugins: [
     new CopyPlugin({
       patterns: [{
@@ -48,7 +50,7 @@ module.exports = {
       }],
     }),
     new CleanWebpackPlugin(),
-    new HTMLWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: 'index.html',
       minify: {
         removeComments: isProd,
@@ -57,14 +59,18 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: filename('css'),
-
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],
   devtool: isDev ? 'source-map' : false,
   devServer: {
     port: 3000,
-    hot: isDev,
+    hot: true,
     open: true,
+    contentBase: path.join(__dirname, 'dist'),
+    watchContentBase: true,
   },
   module: {
     rules: [
