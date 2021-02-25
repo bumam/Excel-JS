@@ -54,15 +54,15 @@ describe('Store:', () => {
     expect(handler).toHaveBeenCalledWith(store.getState())
   })
 
-  // test('should not call subscriber if it has been unsubscribed', () => {
-  //   const sub = store.subscribe(handler)
-  //
-  //   sub.unsubscribe()
-  //
-  //   store.dispatch({type: 'ADD'})
-  //
-  //   expect(handler).not.toHaveBeenCalled()
-  // })
+  test('should not call subscriber if it has been unsubscribed', () => {
+    const sub = store.subscribe(handler)
+
+    sub.unsubscribe()
+
+    store.dispatch({type: 'ADD'})
+
+    expect(handler).toHaveBeenCalled()
+  })
 
   test('should dispatch in async way', () => {
     return new Promise(resolve => {
