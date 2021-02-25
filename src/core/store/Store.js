@@ -1,4 +1,3 @@
-
 export class Store {
   constructor(rootReducer, initialState = {}) {
     this.state = rootReducer({...initialState}, {type: '__INIT__'})

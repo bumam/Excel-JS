@@ -55,5 +55,11 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-jest": "^24.1.5",
     "normalize.css": "^8.0.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^@core/(.*)$": "<rootDir>/src/core/$1"
+    }
   }
 }
